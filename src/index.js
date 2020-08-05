@@ -1,3 +1,3 @@
 import x from './x.js'
-console.log(x);
-console.log('new');
+console.log(x.toString());
+console.log('update');
