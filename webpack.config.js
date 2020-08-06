@@ -1,21 +1,21 @@
-var path = require('path');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+const base = require('./webpack.config.base.js')
 module.exports = {
-    mode: 'production',
-    entry: './src/index.js',
-    output: {
-        filename: 'haixi.[contenthash].js'
+    ...base,
+    mode: 'development',
+    devtool: 'inline-source-map',
+    devServer: {
+        contentBase: './dist',
     },
-    plugins: [new HtmlWebpackPlugin({
-        title: 'hey hey',
-        template: "src/assets/test.html"
-    })],
     module: {
         rules: [
+            ...base.module.rules,
             {
                 test: /\.css$/i,
-                use: ['style-loader','css-loader'],
+                use: ['style-loader', 'css-loader'],
             },
         ],
     },

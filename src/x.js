@@ -1,4 +1,3 @@
-import './x.css'
-
-console.log(css);
-export default 'fuck'
+import './x.scss'
+import './y.less'
+import './z.styl'
